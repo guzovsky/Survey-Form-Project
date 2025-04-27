@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 id="title">Survey Form</h1>
+    <p id="description">We'd love to hear your feedback. Please take a moment to fill out this survey.</p>
+
+    <form id="survey-form">
+        <label id="name-label" for="name" class="name">Name:</label>        
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        
+        <label id="email-label" for="email" class="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label id="number-label" for="age" class="number">Age:</label>
+        <input type="number" id="number" name="age" min="18" max="100" placeholder="Enter your age" required>
+
+        <label for="dropdown" class="dropdown">How did you hear about us?</label>
+        <select id="dropdown" name="source" required>
+            <option value="friends">Friends</option>
+            <option value="internet">internet</option>
+        </select>
+        
+        <!-- Radio Buttons -->
+        <fieldset>
+            <legend>How satisfied are you with our service?</legend>
+
+            <label for="radio1" class="radio">Very Satisfied</label>
+            <input type="radio" id="radio1" name="satisfaction" value="very-satisfied" required>
+            
+            <label for="radio2" class="radio">Neutral</label>
+            <input type="radio" id="radio2" name="satisfaction" value="neutral" required>
+
+            <label for="radio3" class="radio">Dissatisfied</label>
+            <input type="radio" id="radio3" name="satisfaction" value="dissatisfied" required>
+        </fieldset>
+
+        <!-- Checkboxes -->
+        <fieldset>
+            <legend>What features would you like to see in the future?</legend>
+
+            <label for="checkbox1" class="checkbox">Feature 1</label>
+            <input type="checkbox" id="checkbox1" name="feature1" value="feature1">
+
+            <label for="checkbox2" class="checkbox">Feature 2</label>
+            <input type="checkbox" id="checkbox2" name="feature2" value="feature2">
+
+            <label for="checkbox3" class="checkbox">Feature 3</label>
+            <input type="checkbox" id="checkbox3" name="feature3" value="feature3">
+        </fieldset>
+
+        <!-- Textarea -->
+        <label for="comments" class="comments">Additional comments:</label>
+        <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Write your comments here..."></textarea>
+
+        <!-- Submit Button -->
+        <button type="submit" id="submit">Submit</button>
+    </form>
+    
+    <script>
+
+        const numberInput = document.getElementById("number");
+
+        numberInput.addEventListener("blur", () => {
+
+            let value = parseInt(numberInput.value, 10);
+
+            if (value > 100) {
+                numberInput.value = 100;
+            } else if (value < 18 && numberInput.value !== "") {
+                numberInput.value = 18;
+            }
+
+        });
+    </script>
+</body>
+</html>
